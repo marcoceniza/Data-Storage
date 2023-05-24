@@ -13,7 +13,7 @@ class Register extends BaseController
 
         $post = $this->request->getPost(['email', 'password']);
 
-        if(empty($post['email']) || empty($post['password'])) return $this->response->setJSON(['success' => false, 'result' => 'All Fields are Required.']);
+        if(empty($post['email']) || empty($post['password'])) return $this->response->setJSON(['success' => false, 'result' => 'All Fields are Required!']);
 
         $data = [
             'email' => $post['email'],
@@ -22,6 +22,6 @@ class Register extends BaseController
 
         $result = $model->registerUser($data);
 
-        return $this->response->setJSON(['success' => true, 'result' => 'Register Successfully.']);
+        return $this->response->setJSON(['success' => true, 'result' => 'Register Successfully!']);
     }
 }

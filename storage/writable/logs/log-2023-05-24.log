@@ -1,0 +1,52 @@
+CRITICAL - 2023-05-24 11:38:15 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 SYSTEMPATH\Model.php(642): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(832): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Login.php(20): CodeIgniter\Model->__call('where', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')
+CRITICAL - 2023-05-24 11:38:40 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 SYSTEMPATH\Model.php(642): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(832): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Login.php(20): CodeIgniter\Model->__call('where', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')
+CRITICAL - 2023-05-24 11:39:44 --> Undefined property: App\Controllers\Login::$db
+in APPPATH\Controllers\Login.php on line 20.
+ 1 APPPATH\Controllers\Login.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Login::$db', 'C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\app\\Controllers\\Login.php', 20)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')
+CRITICAL - 2023-05-24 11:43:36 --> Undefined variable $usersTB
+in APPPATH\Controllers\Login.php on line 22.
+ 1 APPPATH\Controllers\Login.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $usersTB', 'C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\app\\Controllers\\Login.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')
+CRITICAL - 2023-05-24 11:50:03 --> Undefined property: App\Controllers\Login::$usersTB
+in APPPATH\Controllers\Login.php on line 22.
+ 1 APPPATH\Controllers\Login.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Login::$usersTB', 'C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\app\\Controllers\\Login.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')
+CRITICAL - 2023-05-24 11:55:46 --> Undefined variable $user
+in APPPATH\Controllers\Login.php on line 30.
+ 1 APPPATH\Controllers\Login.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\app\\Controllers\\Login.php', 30)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->loginController()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\Data-Storage\\storage\\public\\index.php')

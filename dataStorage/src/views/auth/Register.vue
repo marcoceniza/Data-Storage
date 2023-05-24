@@ -1,15 +1,11 @@
 <template>
     <div class="container">
         <div class="form_wrap">
+            <div v-if="resultMessage" :class="{'alert': true, 'alert-danger': !resultMessage.isSuccess, 'alert-success': resultMessage.isSuccess}">
+                <strong>{{ resultMessage.message }}</strong>
+            </div>
             <h2>Register</h2>
-            <div v-if="errorMessage" class="alert alert-danger alert-dismissible">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <strong>{{ errorMessage }}</strong>
-            </div>
-            <div v-if="successMessage" class="alert alert-success alert-dismissible">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <strong>{{ successMessage }}</strong>
-            </div>
+            <hr>
             <form>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
@@ -17,15 +13,20 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                    <input type="password" v-model="password" class="form-control" placeholder="Password">
+                    <input :type="inputType" v-model="password" class="form-control" placeholder="Password">
+                    <p class="showPassIcon">
+                        <i @click="showPassHandler" v-if="inputType == 'password'" class="bi bi-eye-fill"></i>
+                        <i @click="showPassHandler" v-else class="bi bi-eye-slash-fill"></i>
+                    </p>
                 </div>
                 <div class="d-grid">
                     <button v-if="loadingState" class="btn btn-primary btn-block" disabled>
                         <span class="spinner-grow spinner-grow-sm"></span>
                         Loading...
                     </button>
-                    <button v-else @click.prevent="register" type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <button v-else @click.prevent="register" type="submit" class="btn btn-primary btn-block">Sign Up</button>
                 </div>
+                <p>Already Registered? <a href="javascript:;" @click="$router.push('/login')">Sign In</a></p>
             </form> 
         </div>
     </div>
@@ -40,11 +41,14 @@ export default {
             loadingState: false,
             email: '',
             password: '',
-            errorMessage: '',
-            successMessage: ''
+            resultMessage: '',
+            inputType: 'password'
         }
     },
     methods: {
+        showPassHandler() {
+            this.inputType == 'password' ? this.inputType = 'text' : this.inputType = 'password';
+        },
         register() {
             this.loadingState = true;
             const formData = new FormData();
@@ -52,16 +56,11 @@ export default {
             formData.append('password', this.password);
 
             axiosRes.post('/register', formData).then(res => {
-                if(!res.data.success) {
-                    this.errorMessage = res.data.result; 
-                    this.loadingState = false;
-                    return;
-                }
-
                 this.loadingState = false;
-                this.successMessage = res.data.result;
-                this.email = '';
-                this.password = '';
+                this.resultMessage = {
+                    message: res.data.result,
+                    isSuccess: res.data.success ? true : false
+                };
             });
         },
     }
@@ -69,6 +68,14 @@ export default {
 </script>
 
 <style scoped>
-.form_wrap{width: 400px; max-width: 100%; position: absolute; top: 50%; transform: translateY(-50%); box-shadow: 0px 0px 5px #e1e1e1; padding: 12px; border-radius: 12px;}
-.input-group{margin: 12px 0;}
+form{margin-top: 30px;}
+.form_wrap{width: 320px; max-width: 100%; position: absolute; top: 50%; transform: translateY(-50%); box-shadow: 0px 0px 5px #e1e1e1; padding: 12px; border-radius: 12px;left: 0; right: 0; margin: 0 auto;}
+.form_wrap p{text-align: center; margin: 25px auto 0; font-size: 12px;}
+.form_wrap p a{color: #ff1212; font-weight: bold;}
+.form_wrap p a:hover{text-decoration: none; background: none;}
+.form_wrap h2{text-align: center; font-size: 25px;}
+.input-group{margin: 15px 0;}
+.alert{text-align: center;}
+.d-grid{margin-top: 25px;}
+.showPassIcon i{position: absolute; right: 8px; top: 10px; z-index: 12; background: #fff; padding-left: 4px;cursor: pointer;}
 </style>
