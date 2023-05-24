@@ -17,7 +17,8 @@ class Register extends BaseController
 
         $data = [
             'email' => $post['email'],
-            'password' => password_hash($post['password'], PASSWORD_DEFAULT)
+            'password' => password_hash($post['password'], PASSWORD_DEFAULT),
+            'user_type' => 0
         ];
 
         $result = $model->registerUser($data);

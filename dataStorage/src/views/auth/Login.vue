@@ -42,7 +42,8 @@ export default {
             email: '',
             password: '',
             resultMessage: '',
-            inputType: 'password'
+            inputType: 'password',
+            user: JSON.parse(localStorage.getItem('user_info'))
         }
     },
     methods: {
@@ -55,7 +56,7 @@ export default {
             formData.append('email', this.email);
             formData.append('password', this.password);
 
-            axiosRes.post('/login', formData).then(res => {
+            axiosRes.post('/login', formData).then(async res => {
                 this.loadingState = false;
                 this.resultMessage = {
                     message: res.data.result,
@@ -65,7 +66,12 @@ export default {
                 if(res.data.success) {
                     localStorage.setItem('user_info', JSON.stringify(res.data.user));
                     localStorage.setItem('user_token', JSON.stringify(res.data.token));
-                    setTimeout(() => { this.$router.push('/orders') }, 3000);
+
+                    if(res.data.user.user_type == 0) {
+                        setTimeout(() => { this.$router.push('/orders'); }, 3000);
+                    }else {
+                        setTimeout(() => { this.$router.push('/dashboard'); }, 3000);
+                    }
                 }
             });
         },

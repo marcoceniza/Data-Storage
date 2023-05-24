@@ -26,7 +26,7 @@
                     </button>
                     <button v-else @click.prevent="register" type="submit" class="btn btn-primary btn-block">Sign Up</button>
                 </div>
-                <p>Already Registered? <a href="javascript:;" @click="$router.push('/login')">Sign In</a></p>
+                <p>Already Registered? <a href="javascript:;" @click="$router.push('/')">Sign In</a></p>
             </form> 
         </div>
     </div>
