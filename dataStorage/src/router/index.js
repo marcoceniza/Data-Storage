@@ -19,7 +19,8 @@ const router = createRouter({
       name: 'dashboard',
       component: () => import('../views/pages/Dashboard.vue'),
       beforeEnter: (to, from, next) => {
-        !localStorage.getItem('user_info') ? next('/') : next();
+        if (!localStorage.getItem('user_info')) return next('/');
+        JSON.parse(localStorage.getItem('user_info')).user_type == 1 ? next() : next('/');
       }
     },
     {
@@ -27,7 +28,8 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/pages/Home.vue'),
       beforeEnter: (to, from, next) => {
-        !localStorage.getItem('user_info') ? next('/') : next();
+        if (!localStorage.getItem('user_info')) return next('/');
+        JSON.parse(localStorage.getItem('user_info')).user_type == 0 ? next() : next('/');
       }
     },
     {
@@ -35,7 +37,8 @@ const router = createRouter({
       name: 'orders',
       component: () => import('../views/pages/Orders.vue'),
       beforeEnter: (to, from, next) => {
-        !localStorage.getItem('user_info') ? next('/') : next();
+        if (!localStorage.getItem('user_info')) return next('/');
+        JSON.parse(localStorage.getItem('user_info')).user_type == 0 ? next() : next('/');
       }
     },
   ]
