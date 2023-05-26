@@ -13,7 +13,10 @@ class Dashboard extends BaseController
 
         $result = $model->fetchProduct();
 
-        return $this->response->setJSON(['success' => true, 'result' => $result]);
+        return $this->response->setJSON([
+            'success' => true,
+            'result' => $result
+        ]);
     }
 
     public function addProductController()
@@ -22,7 +25,12 @@ class Dashboard extends BaseController
 
         $post = $this->request->getPost(['name', 'price', 'description']);
 
-        if(empty($post['name']) || empty($post['price']) || empty($post['description'])) return $this->response->setJSON(['success' => false, 'result' => 'All Fields are Required!']);
+        if(empty($post['name']) || empty($post['price']) || empty($post['description'])) {
+            return $this->response->setJSON([
+                'success' => false,
+                'result' => 'All Fields are Required!'
+            ]);
+        }
 
         $data = [
             'name' => $post['name'],
@@ -33,7 +41,39 @@ class Dashboard extends BaseController
 
         $result = $model->addProduct($data);
 
-        return $this->response->setJSON(['success' => true, 'result' => 'Added Successfully!']);
+        return $this->response->setJSON([
+            'success' => true,
+            'result' => 'Added Successfully! Reloading...'
+        ]);
+    }
+
+    public function updateProductController()
+    {
+        $model = new DashboardModel();
+
+        $post = $this->request->getPost(['name', 'price', 'description']);
+        $id = $this->request->getPost('productID');
+
+        if(empty($post['name']) || empty($post['price']) || empty($post['description'])) {
+            return $this->response->setJSON([
+                'success' => false,
+                'result' => 'All Fields are Required!'
+            ]);
+        }
+
+        $data = [
+            'name' => $post['name'],
+            'price' => $post['price'],
+            'description' => $post['description'],
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        $result = $model->updatedProduct($id, $data);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'result' => 'Updated Successfully! Reloading...'
+        ]);
     }
 
     public function deleteProductController()
@@ -48,6 +88,9 @@ class Dashboard extends BaseController
 
         $result = $model->deleteProduct($data);
 
-        return $this->response->setJSON(['success' => true, 'result' => 'Deleted Successfully!']);
+        return $this->response->setJSON([
+            'success' => true,
+            'result' => 'Deleted Successfully!'
+        ]);
     }
 }

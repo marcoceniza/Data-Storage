@@ -32,8 +32,9 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->post('login', 'Login::loginController');
 $routes->post('register', 'Register::registerController');
-$routes->post('addProduct', 'Dashboard::addProductController');
 $routes->get('fetchProduct', 'Dashboard::fetchProductController');
+$routes->post('addProduct', 'Dashboard::addProductController');
+$routes->post('updateProduct', 'Dashboard::updateProductController');
 $routes->post('deleteProduct', 'Dashboard::deleteProductController');
 
 /*

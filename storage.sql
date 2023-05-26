@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 12:55 AM
+-- Generation Time: May 27, 2023 at 12:56 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -59,15 +59,19 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `price`, `description`, `created_at`) VALUES
-(3, 'test3', '3.00', 'test3', '2023-05-25 18:12:42');
+INSERT INTO `products` (`product_id`, `name`, `price`, `description`, `created_at`, `updated_at`) VALUES
+(10, 'test', '1.00', 'test', '2023-05-26 19:45:09', '0000-00-00 00:00:00'),
+(11, 'test2', '2.00', 'test2', '2023-05-26 19:46:21', '0000-00-00 00:00:00'),
+(12, 'test3', '3.00', 'test3', '2023-05-26 19:46:53', '0000-00-00 00:00:00'),
+(13, 'test5', '5.00', 'test5', '2023-05-26 19:47:27', '2023-05-26 19:53:33');
 
 -- --------------------------------------------------------
 
@@ -138,7 +142,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`

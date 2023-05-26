@@ -68,7 +68,7 @@ export default {
                     localStorage.setItem('user_token', JSON.stringify(res.data.token));
 
                     if(res.data.user.user_type == 0) {
-                        setTimeout(() => { this.$router.push('/orders'); }, 3000);
+                        setTimeout(() => { this.$router.push('/home'); }, 3000);
                     }else {
                         setTimeout(() => { this.$router.push('/dashboard'); }, 3000);
                     }

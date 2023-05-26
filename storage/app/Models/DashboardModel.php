@@ -26,6 +26,12 @@ class DashboardModel extends Model
         return $query;
     }
 
+    public function updatedProduct($id, $data)
+    {
+        $query = $this->productsTB->where('product_id', $id);
+        return $query->update($data);
+    }
+
     public function deleteProduct($id)
     {
         $query = $this->productsTB->where('product_id', $id);
